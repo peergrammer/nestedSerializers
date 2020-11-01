@@ -2,10 +2,10 @@ from django.shortcuts import render
 from .models import Author, Book
 from nsApp.serializer import AuthorSerializer, BookSerializer
 from rest_framework import generics
-from rest_framework.pagination import PageNumberPagination
+from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
 
 
-class BookListPagination(PageNumberPagination):
+class BookListPagination(LimitOffsetPagination):
     page_size = 2
 
 class AuthorListView(generics.ListCreateAPIView):
